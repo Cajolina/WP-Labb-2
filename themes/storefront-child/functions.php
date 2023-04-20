@@ -32,3 +32,11 @@ function my_remove_catalog_ordering()
 }
 
 add_action('after_setup_theme', 'my_remove_catalog_ordering', 99);
+
+
+
+function free_shipping()
+{
+    echo '<div class="shipping-info">' . "Fri frakt över 299kr" . '</div>';
+}
+add_action('storefront_before_content', 'free_shipping');
