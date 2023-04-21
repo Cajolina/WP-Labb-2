@@ -40,3 +40,15 @@ function free_shipping()
     echo '<div class="shipping-info">' . "Fri frakt över 299kr" . '</div>';
 }
 add_action('storefront_before_content', 'free_shipping');
+
+
+//registrera ny meny
+add_action('init', 'registrera_meny');
+
+function registrera_meny()
+{
+    $menus = array(
+        'undermeny' => 'Undermeny',
+    );
+    register_nav_menus($menus);
+}
