@@ -105,6 +105,10 @@ function labb2_css()
     color: #43454b;
 }
 
+button.single_add_to_cart_button.button.alt.wp-element-button{
+    background-color: white;
+    color: #43454b;
+}
 
 
     #masthead {
