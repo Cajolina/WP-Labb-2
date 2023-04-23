@@ -30,3 +30,8 @@ div.shipping-info {
 a:visited {
   color: inherit;
 }
+
+.button {
+  background-color: rgb(205, 203, 203);
+  border-radius: 15px;
+}

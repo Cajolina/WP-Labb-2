@@ -31,6 +31,10 @@ function labb2_css_button()
             cursor: pointer;
             font-size: 1.5rem;
     }
+    a.button.wp-element-button.product_type_variable.add_to_cart_button {
+
+        color: #43454b;
+    }
     </style>
 
     ";
@@ -42,6 +46,7 @@ add_action('init', 'labb2_css_button');
 function labb2_css()
 {
     echo "
+
     <style type='text/css'>
     .button_container {
         
@@ -62,14 +67,56 @@ function labb2_css()
             color: white;
             font-size: 1.5rem;
     }
+    .main-navigation ul li a {
+
+        color: white;
+        
+        }
+     h1, h2, h3, h4, h5, h6{
+
+        color: white;
+        
+        }
+        #page {
+            color: white;
+        }
+        .menu2{
+            color: white;
+        }
+
+        .woocommerce-Price-currencySymbol {
+
+         color: white;
+            }
+            
+        .woocommerce-Price-amount {
+            color: white;
+            }
+            .count{
+                color: white;
+            }
+            a.cart-contents::after {
+
+                color: orange;
+                
+                }
+ a.button.wp-element-button.product_type_variable.add_to_cart_button {
+
+    color: #43454b;
+}
+
+
+
     #masthead {
         background-color: rgb(41, 41, 41);
+        color: white;
     }    
     #page {
         background-color: rgb(41, 41, 41);
     }
     #colophon {
         background-color: rgb(41, 41, 41);
+        color: rgb(172, 172, 172);
     }
     a {
         color: white;
@@ -104,7 +151,7 @@ if (isset($_COOKIE['labb2_css'])) {
     <form method="post">
 
         <input type="hidden" name="labb2_button" value="1" />
-        <button type="submit" class="labb2_button"><i class="fa-regular fa-moon"></i></button>
+        <button type="submit" class="labb2_button" onclick="event.stopPropagation();"><i class="fa-regular fa-moon"></i></button>
 
     </form>
 
@@ -112,7 +159,7 @@ if (isset($_COOKIE['labb2_css'])) {
     <form method="post">
 
         <input type="hidden" name="remove_labb2_button" value="1" />
-        <button type="submit" class="remove_labb2_button"><i class="fa-solid fa-sun"></i></button>
+        <button type="submit" class="remove_labb2_button" onclick="event.stopPropagation();"><i class="fa-solid fa-sun"></i></button>
 
     </form>
 </div>

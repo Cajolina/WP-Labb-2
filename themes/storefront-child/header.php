@@ -52,7 +52,7 @@
 			?>
 
 			<?php
-
+			//visar undermenyn i headern
 			wp_nav_menu(array(
 
 				'menu' => 'undermeny',
