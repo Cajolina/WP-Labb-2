@@ -3,11 +3,14 @@
 /*
 
 Plugin Name: Labb2 plugin
-
+Description: Plugin för att växla mellan ljust och mörkt färgtema
 */
 
-if (!is_admin()) {
+//Wrappar upp hela plugin:et så att det inte gäller i Adminpanelen
 
+//Det ska bara vara på själva websidan som det går att ändra färg
+if (!is_admin()) {
+    //Sätter css för plugin knapparna som man ska använda för att skifta mellan färgtemat
     function labb2_css_button()
     {
         echo "
@@ -50,7 +53,7 @@ if (!is_admin()) {
 
     add_action('init', 'labb2_css_button');
 
-
+    //Sätter inställningar för det mörka färgtemat
     function labb2_css()
     {
         echo "
