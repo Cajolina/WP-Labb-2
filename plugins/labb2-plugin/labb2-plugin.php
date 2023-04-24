@@ -5,9 +5,12 @@
 Plugin Name: Labb2 plugin
 
 */
-function labb2_css_button()
-{
-    echo "
+
+if (!is_admin()) {
+
+    function labb2_css_button()
+    {
+        echo "
     <style type='text/css'>
 
     .button_container {
@@ -35,17 +38,22 @@ function labb2_css_button()
 
         color: #43454b;
     }
+    a.checkout-button.button.alt.wc-forward.wp-element-button {
+
+        background-color: green;
+       
+        }
     </style>
 
     ";
-}
+    }
 
-add_action('init', 'labb2_css_button');
+    add_action('init', 'labb2_css_button');
 
 
-function labb2_css()
-{
-    echo "
+    function labb2_css()
+    {
+        echo "
 
     <style type='text/css'>
     .button_container {
@@ -109,7 +117,11 @@ button.single_add_to_cart_button.button.alt.wp-element-button{
     background-color: white;
     color: #43454b;
 }
+a.checkout-button.button.alt.wc-forward.wp-element-button {
 
+     background-color: green;
+    
+     }
 
     #masthead {
         background-color: rgb(41, 41, 41);
@@ -128,45 +140,48 @@ button.single_add_to_cart_button.button.alt.wp-element-button{
     </style>
 
     ";
-}
+    }
 
-function activate_labb2_css()
-{
-    setcookie('labb2_css', '1', time() + 3600 * 24 * 30, '/');
-    add_action('wp_head', 'labb2_css');
-}
-function deactivate_labb2_css()
-{
-    setcookie('labb2_css', '', time() - 3600, '/');
-    unset($_COOKIE['labb2_css']);
-}
-if (isset($_POST['labb2_button'])) {
-    activate_labb2_css();
-} elseif (isset($_POST['remove_labb2_button'])) {
-    deactivate_labb2_css();
-}
-if (isset($_COOKIE['labb2_css'])) {
-    add_action('wp_head', 'labb2_css');
-}
+    function activate_labb2_css()
+    {
+        setcookie('labb2_css', '1', time() + 3600 * 24 * 30, '/');
+        add_action('wp_head', 'labb2_css');
+    }
+    function deactivate_labb2_css()
+    {
+        setcookie('labb2_css', '', time() - 3600, '/');
+        unset($_COOKIE['labb2_css']);
+    }
+    if (isset($_POST['labb2_button'])) {
+        activate_labb2_css();
+    } elseif (isset($_POST['remove_labb2_button'])) {
+        deactivate_labb2_css();
+    }
+    if (isset($_COOKIE['labb2_css'])) {
+        add_action('wp_head', 'labb2_css');
+    }
 ?>
-<!-- Create a button to trigger the request -->
+    <!-- Skapar knappar som ska kunna byta färg på webbsidan -->
 
-<div class="button_container">
-    <form method="post">
+    <div class="button_container">
+        <form method="post">
 
-        <input type="hidden" name="labb2_button" value="1" />
-        <button type="submit" class="labb2_button" onclick="event.stopPropagation();"><i class="fa-regular fa-moon"></i></button>
+            <input type="hidden" name="labb2_button" value="1" />
+            <button type="submit" class="labb2_button" onclick="event.stopPropagation();"><i class="fa-regular fa-moon"></i></button>
 
-    </form>
+        </form>
 
 
-    <form method="post">
+        <form method="post">
 
-        <input type="hidden" name="remove_labb2_button" value="1" />
-        <button type="submit" class="remove_labb2_button" onclick="event.stopPropagation();"><i class="fa-solid fa-sun"></i></button>
+            <input type="hidden" name="remove_labb2_button" value="1" />
+            <button type="submit" class="remove_labb2_button" onclick="event.stopPropagation();"><i class="fa-solid fa-sun"></i></button>
 
-    </form>
-</div>
+        </form>
+    </div>
+
+<?php } ?>
+
 
 
 
